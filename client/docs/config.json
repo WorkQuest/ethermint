@@ -5,6 +5,7 @@
       "description": "A REST interface for state queries, legacy transactions",
       "version": "1.0.0"
     },
+    "basePath": "/api/",
     "apis": [
       {
         "url": "./tmp-swagger-gen/ethermint/evm/v1/query.swagger.json",
