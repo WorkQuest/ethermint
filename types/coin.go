@@ -16,6 +16,9 @@ const (
 	// - EVM parameters: denomination used for running EVM state transitions in Ethermint.
 	AttoPhoton string = "aphoton"
 
+	// WorkQuestToken defines the default coin denomination used in WorkQuest project
+	WorkQuestToken string = "wqt"
+
 	// BaseDenomUnit defines the base denomination unit for Photons.
 	// 1 photon = 1x10^{BaseDenomUnit} aphoton
 	BaseDenomUnit = 18

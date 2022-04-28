@@ -15,7 +15,7 @@ import (
 var _ paramtypes.ParamSet = &Params{}
 
 const (
-	DefaultEVMDenom = types.AttoPhoton
+	DefaultEVMDenom = types.WorkQuestToken
 )
 
 // Parameter keys
