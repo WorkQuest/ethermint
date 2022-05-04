@@ -1,0 +1,35 @@
+{
+  "chain_id" : "worktestnetwork_1991-1",
+  "validators" : [
+  {
+    "id" : "2201781c2ebaee5105e57d0aa216f30ca2d522c9",
+    "ip" : "188.166.86.10",
+    "moniker" : "nyc3",
+    "pubkey" : "{\"@type\":\"/cosmos.crypto.ed25519.PubKey\",\"key\":\"6of4UZN9MP77v52pNFzUkvW1AsiAekhikfR9EQT21iI=\"}"
+  },
+  {
+    "id" : "1616a8ef90ae77f818be28eacafa9e7d8ad9a016",
+    "ip" : "188.166.106.37",
+    "moniker" : "fra3",
+    "pubkey" : "{\"@type\":\"/cosmos.crypto.ed25519.PubKey\",\"key\":\"iLsbR5QGREThof1OOyumDJu41SEJjf4W88xuf1qfg48=\"}"
+  },
+  {
+    "id" : "1f989d76a4d0bfb6553b5a3c8432f4df5669166c",
+    "ip" : "188.166.104.50",
+    "moniker" : "ams3",
+    "pubkey" : "{\"@type\":\"/cosmos.crypto.ed25519.PubKey\",\"key\":\"mnSkRR72WT0VJ2WJflDT6LORq0TXx8XOJqhpEvrv/Ww=\"}"
+  }
+  ],
+  "archive" : [
+    {
+      "id" : "ff41175bbe165b9da866204a8aaa8381c340b997",
+      "ip" : "134.209.91.113",
+      "moniker" : "arch1"
+    },
+    {
+      "id" : "a4c61c9931debd6c987ac1ac7590374256c5bade",
+      "ip" : "134.209.91.154",
+      "moniker": "arch2"
+    }
+  ]
+}
