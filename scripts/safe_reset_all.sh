@@ -1,6 +1,7 @@
 #!/bin/sh
 
-BCPATH="/Users/vito/.ethermintd"
+HOME_PATH=$(eval echo "~$different_user")
+BCPATH=$HOME_PATH"/.ethermintd"
 DATAPATH=$BCPATH"/data"
 PRIV_VAL_STATE=$DATAPATH"/priv_validator_state.json"
 ADDR_BOOK=$BCPATH"/config/addrbook.json"
@@ -11,7 +12,7 @@ then
     exit
 fi
 
-ACTUAL_VAL_STATE=actual_priv_validator_state.json
+ACTUAL_VAL_STATE=scripts/actual_priv_validator_state.json
 cp $PRIV_VAL_STATE ./$ACTUAL_VAL_STATE
 
 rm -rf $DATAPATH
