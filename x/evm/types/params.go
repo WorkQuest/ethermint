@@ -15,7 +15,7 @@ import (
 var _ paramtypes.ParamSet = &Params{}
 
 const (
-	DefaultEVMDenom = types.WorkQuestToken
+	DefaultEVMDenom = types.AttoWqt
 )
 
 // Parameter keys

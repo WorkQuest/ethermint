@@ -1,18 +1,18 @@
 accounts:
   - name: alice
-    coins: ["100000000uatom", "100000000000000000000aphoton"]
+    coins: ["100000000uatom", "100000000000000000000awqt"]
   - name: bob
-    coins: ["5000000000000aphoton"]
+    coins: ["5000000000000awqt"]
   - name: faucet
-    coins: ["1000000000000000000000000000aphoton"]
+    coins: ["1000000000000000000000000000awqt"]
 validator:
   name: alice
-  staked: "100000000000000000000aphoton"
+  staked: "100000000000000000000awqt"
 faucet:
   port: 4500
   name: "faucet"
-  coins: ["1000000000000000000000000000aphoton"]
-  coins_max: ["100000000aphoton"]
+  coins: ["1000000000000000000000000000awqt"]
+  coins_max: ["100000000awqt"]
 build:
   binary: "ethermintd"
 init:
@@ -28,18 +28,18 @@ genesis:
   app_state:
     staking:
       params:
-        bond_denom: "aphoton"
+        bond_denom: "awqt"
     mint:
       params:
-        mint_denom: "aphoton"
+        mint_denom: "awqt"
     crisis:
       constant_fee:
-        denom: "aphoton"
+        denom: "awqt"
     gov:
       deposit_params:
         min_deposit:
           - amount: "10000000"
-            denom: "aphoton"
+            denom: "awqt"
     evm:
       params:
-        evm_denom: "aphoton"
+        evm_denom: "awqt"
