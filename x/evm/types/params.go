@@ -15,7 +15,7 @@ import (
 var _ paramtypes.ParamSet = &Params{}
 
 const (
-	DefaultEVMDenom = types.AttoWqt
+	DefaultEVMDenom = types.AttoPhoton
 )
 
 // Parameter keys
