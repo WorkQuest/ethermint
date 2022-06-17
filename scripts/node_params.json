@@ -1,5 +1,8 @@
 {
   "chain_id" : "worktestnetwork_1991-1",
+  "token_denom": "awqt",
+  "wallet_balance": "100000000000000000000000000000000000000000000000000000000000",
+  "amount_to_gentx": "1000000000",
   "validators" : [
   {
     "id" : "2201781c2ebaee5105e57d0aa216f30ca2d522c9",

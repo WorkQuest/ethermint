@@ -6,15 +6,15 @@ then
     exit
 fi
 
-TOKEN_DENOM="awqt"
-AMOUNT="1000000000"$TOKEN_DENOM
-WALLET_BALANCE="100000000000000000000000000000000000000000000000000000000000"$TOKEN_DENOM
+TOKEN_DENOM=$(jq -r '.token_denom' scripts/node_params.json)
+AMOUNT=$(jq -r '.amount_to_gentx' scripts/node_params.json)$TOKEN_DENOM
+WALLET_BALANCE=$(jq -r '.wallet_balance' scripts/node_params.json)$TOKEN_DENOM
+CHAIN_ID=$(jq -r '.chain_id' scripts/node_params.json);
 
 HOME_PATH=$(eval echo "~$different_user")
 NODE_PARAMS="scripts/node_params.json"
 BCPATH=$HOME_PATH"/.ethermintd"
 OUTPUT=$BCPATH"/config/gentx/"
-CHAIN_ID=$(jq -r '.chain_id' scripts/node_params.json);
 
 # Check existing genesis.json file
 if [ ! -f $BCPATH/config/genesis.json ]
