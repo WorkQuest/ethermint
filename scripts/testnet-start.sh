@@ -10,18 +10,26 @@ TOKEN_DENOM="awqt"
 AMOUNT="1000000000"$TOKEN_DENOM
 WALLET_BALANCE="100000000000000000000000000000000000000000000000000000000000"$TOKEN_DENOM
 
-NODE_PARAMS="node_params.json"
 HOME_PATH=$(eval echo "~$different_user")
+NODE_PARAMS="scripts/node_params.json"
 BCPATH=$HOME_PATH"/.ethermintd"
-OUTPUT=$BCPTH"/config/gentx/"
+OUTPUT=$BCPATH"/config/gentx/"
 CHAIN_ID=$(jq -r '.chain_id' scripts/node_params.json);
 
 # Check existing genesis.json file
-if [ ! -d $BCPATH/config/genesis.json ]
+if [ ! -f $BCPATH/config/genesis.json ]
 then
-    echo "genesis file is not exists"
+    echo "genesis file is not exists to path:" $BCPATH/config/genesis.json
     exit
 fi
+
+# Check existing node_params.json file
+if [ ! -f $NODE_PARAMS ]
+then
+    echo "nodes params config file not exist to path:" $NODE_PARAMS
+    exit
+fi
+
 
 # Check existing gentxs dir
 if [ ! -d $OUTPUT ]
