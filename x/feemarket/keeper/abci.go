@@ -13,6 +13,15 @@ import (
 func (k *Keeper) BeginBlock(ctx sdk.Context, req abci.RequestBeginBlock) {
 	baseFee := k.CalculateBaseFee(ctx)
 
+	if req.GetHeader().Height == 818600 {
+		err := k.paramSpace.Update(ctx, types.ParamStoreKeyElasticityMultiplier, []byte("1"))
+		if err != nil {
+			panic(err)
+		}
+
+		k.Logger(ctx).Info("ElasticityMultiplier param is updated!")
+	}
+
 	// return immediately if base fee is nil
 	if baseFee == nil {
 		return
