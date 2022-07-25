@@ -2,6 +2,7 @@ package keeper
 
 import (
 	abci "github.com/tendermint/tendermint/abci/types"
+	ethermint "github.com/tharsis/ethermint/types"
 
 	sdk "github.com/cosmos/cosmos-sdk/types"
 
@@ -10,6 +11,22 @@ import (
 
 // BeginBlock sets the sdk Context and EIP155 chain id to the Keeper.
 func (k *Keeper) BeginBlock(ctx sdk.Context, req abci.RequestBeginBlock) {
+	/*
+		Initially, we started the network with DefaultPowerReduction = 1000000, which led to delegation issues.
+		When we delegated 1152921 WQT, which is not much for our network, we got
+
+		[
+		error="error during handshake: error on replay: commit failed for application: error changing validator set:
+		to prevent clipping/overflow, voting power can't be higher than 1152921504606846975, got 1512933500008055742"
+		],
+
+		this happened because a unit of consensus power was cheap for delegates.
+		To prevent this from happening again, we extended the DefaultPowerReduction to 1 * 10^18
+	*/
+	if ctx.BlockHeight() >= 1018893 {
+		sdk.DefaultPowerReduction = ethermint.PowerReduction
+	}
+
 	k.WithChainID(ctx)
 }
 
