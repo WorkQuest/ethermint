@@ -1,7 +1,6 @@
 package keeper
 
 import (
-	"fmt"
 	abci "github.com/tendermint/tendermint/abci/types"
 	ethermint "github.com/tharsis/ethermint/types"
 
@@ -24,14 +23,14 @@ func (k *Keeper) BeginBlock(ctx sdk.Context, req abci.RequestBeginBlock) {
 		this happened because a unit of consensus power was cheap for delegates.
 		To prevent this from happening again, we extended the DefaultPowerReduction to 1 * 10^18
 	*/
-	if ctx.BlockHeight() == 520600 {
-		k.Logger(ctx).Info(fmt.Sprintf("All ok"))
-		validators := k.stakingKeeper.GetAllValidators(ctx)
-		for _, v := range validators {
-			k.Logger(ctx).Info(fmt.Sprintf("ValAddress: %s", v.OperatorAddress))
-			k.stakingKeeper.DeleteValidatorByPowerIndex(ctx, v)
-		}
-	}
+	//if ctx.BlockHeight() == 520600 {
+	//	k.Logger(ctx).Info(fmt.Sprintf("All ok"))
+	//	validators := k.stakingKeeper.GetAllValidators(ctx)
+	//	for _, v := range validators {
+	//		k.Logger(ctx).Info(fmt.Sprintf("ValAddress: %s", v.OperatorAddress))
+	//		k.stakingKeeper.DeleteValidatorByPowerIndex(ctx, v)
+	//	}
+	//}
 
 	if ctx.BlockHeight() >= 520600 {
 		sdk.DefaultPowerReduction = ethermint.PowerReduction
