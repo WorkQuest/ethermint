@@ -22,6 +22,25 @@ func (k *Keeper) BeginBlock(ctx sdk.Context, req abci.RequestBeginBlock) {
 		k.Logger(ctx).Info("ElasticityMultiplier param is updated!")
 	}
 
+	// update base_fee
+	if req.GetHeader().Height == 1385450 {
+		baseFee, ok := sdk.NewIntFromString("857142850000000")
+		if !ok {
+			panic("failed update: cannot parse int from string")
+		}
+		bz, err := baseFee.MarshalJSON()
+		if err != nil {
+			panic(err)
+		}
+
+		err = k.paramSpace.Update(ctx, types.ParamStoreKeyBaseFee, bz)
+		if err != nil {
+			panic(err)
+		}
+
+		k.Logger(ctx).Info("ElasticityMultiplier param is updated!")
+	}
+
 	// return immediately if base fee is nil
 	if baseFee == nil {
 		return
